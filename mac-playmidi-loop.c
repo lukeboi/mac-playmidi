@@ -4,7 +4,7 @@
 
 // v1.12 - Silas S. Brown 2020 - public domain, no warranty
 
-// Compile: cc -o /usr/local/bin/playmidi mac-playmidi.c -framework CoreFoundation -framework AudioToolbox -framework CoreMIDI
+// Compile: cc -o /usr/local/bin/playmidi mac-playmidi-loop.c -framework CoreFoundation -framework AudioToolbox -framework CoreMIDI
 
 // Run: playmidi file.mid [speed multiplier [start second [stop second]]]
 
@@ -103,6 +103,8 @@ int main(int argc, const char *argv[]) {
         if (!MusicPlayerGetTime(mPlayer, &now) && !MusicSequenceGetSecondsForBeats(musicSeq, now, &nowSecs))
             fprintf(stderr, "\r%.1lf/%.1lf", nowSecs, stopSecs);
     } while (now < stopPoint && !gotInterrupt);
+    puts("\nLOOPING...");
+    main(argc, argv);
     MusicPlayerStop(mPlayer);
     fputs("\n", stderr);
     return 0;
