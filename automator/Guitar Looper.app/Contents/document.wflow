@@ -217,7 +217,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}		set midiPath to POSIX path of input	display dialog midiPath		tell application "Terminal"		activate		set filesString to ""		repeat with file_ in input			set filesString to filesString &amp; " " &amp; quoted form of (POSIX path of file_)		end repeat		do script "playmidi \"" &amp; midiPath &amp; "\""	end tell	return inputend run</string>
+					<string>on run {input, parameters}		set midiPath to POSIX path of input		tell application "Terminal"		activate		set filesString to ""		repeat with file_ in input			set filesString to filesString &amp; " " &amp; quoted form of (POSIX path of file_)		end repeat		do script "playmidi \"" &amp; midiPath &amp; "\""	end tell	return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -328,8 +328,6 @@ end run</string>
 				<string>Run Shell Script</string>
 				<key>ActionParameters</key>
 				<dict>
-					<key>COMMAND_STRING</key>
-					<string>killall playmidi</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
