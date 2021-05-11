@@ -1,0 +1,4 @@
+#!bin/bash
+
+python ./player.py
+pkill -f playmidi-single
